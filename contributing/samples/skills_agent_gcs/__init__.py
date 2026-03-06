@@ -12,15 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import annotations
-
-import warnings
-
-from google.adk.integrations.api_registry import ApiRegistry
-
-warnings.warn(
-    "google.adk.tools.api_registry is moved to"
-    " google.adk.integrations.api_registry",
-    DeprecationWarning,
-    stacklevel=2,
-)
+from . import agent
