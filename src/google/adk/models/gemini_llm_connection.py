@@ -311,7 +311,10 @@ class GeminiLlmConnection(BaseLlmConnection):
               yield self.__build_full_text_response(text)
               text = ''
             # this condition prevents duplicate interruption signals
-            if not content or not content.parts:
+            if (
+                not (content and content.parts)
+                and not message.server_content.grounding_metadata
+            ):
               yield LlmResponse(
                   interrupted=message.server_content.interrupted,
                   model_version=self._model_version,
