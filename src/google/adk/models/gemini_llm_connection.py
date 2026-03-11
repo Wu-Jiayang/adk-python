@@ -313,8 +313,8 @@ class GeminiLlmConnection(BaseLlmConnection):
             # this condition prevents duplicate interruption signals
             if not content or not content.parts:
               yield LlmResponse(
-                interrupted=message.server_content.interrupted,
-                model_version=self._model_version,
+                  interrupted=message.server_content.interrupted,
+                  model_version=self._model_version,
               )
         if message.tool_call:
           if text:
